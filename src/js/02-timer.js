@@ -22,6 +22,7 @@ const options = {
     } else {
       startBtn.disabled = false;
 
+      let timerId = null;
       const timer = {
         start() {
           timerId = setInterval(() => {
@@ -51,7 +52,7 @@ const options = {
     }
   },
 };
-const flLib = flatpickr('#datetime-picker', options);
+flatpickr('#datetime-picker', options);
 
 function convertMs(ms) {
   const second = 1000;
