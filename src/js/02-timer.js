@@ -5,12 +5,10 @@ const inp = document.querySelector('#datetime-picker');
 const startBtn = document.querySelector('button');
 startBtn.disabled = true;
 const timer = document.querySelector('.timer');
-// console.log(startBtn);
-// console.log(inp);
-// console.log(timer);
-
-const a = new Date();
-// console.log(a);
+const daysTimer = document.querySelector('[data-days]');
+const hoursTimer = document.querySelector('[data-hours]');
+const minutesTimer = document.querySelector('[data-minutes]');
+const secondsTimer = document.querySelector('[data-seconds]');
 
 const options = {
   enableTime: true,
@@ -18,13 +16,31 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (selectedDates[0] <= a) {
+    let selectedTime = selectedDates[0];
+    const a = new Date();
+
+    if (selectedTime <= a) {
       window.alert('Please choose a date in the future');
     } else {
       startBtn.disabled = false;
-      startBtn.addEventListener('click', () => {
-        // console.log(selectedDates[0]);
-      });
+
+      const timer = {
+        start() {
+          setInterval(() => {
+            const dateNow = new Date();
+            let msDelta = selectedTime - dateNow;
+            const msResult = convertMs(msDelta);
+
+            daysTimer.textContent = msResult.days;
+            hoursTimer.textContent = msResult.hours;
+            minutesTimer.textContent = msResult.minutes;
+            secondsTimer.textContent = msResult.seconds;
+          }, 1000);
+        },
+      };
+      timer.start();
+
+      // startBtn.addEventListener('click', convertMs(msResult));
     }
   },
 };
