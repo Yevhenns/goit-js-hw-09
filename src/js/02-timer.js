@@ -14,7 +14,7 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    let selectedTime = selectedDates[0];
+    const selectedTime = selectedDates[0];
     const a = new Date();
 
     if (selectedTime <= a) {
@@ -71,3 +71,27 @@ function convertMs(ms) {
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
+
+const timerStyle = document.querySelector('.timer');
+timerStyle.setAttribute(
+  'style',
+  'display: flex; justify - content: center; margin-top: 20px'
+);
+
+const itemStyle = document.querySelectorAll('.field');
+itemStyle[0].setAttribute(
+  'style',
+  'width: 150px; display: flex; flex-direction: column; box-shadow: 10px 5px 5px black; align-items: center; margin-right: 20px; font-family: Roboto; font-size: 26px; border: #212121 1px solid; border-radius: 5px; background-color: aqua;'
+);
+itemStyle[1].setAttribute(
+  'style',
+  'width: 150px; display: flex; flex-direction: column; box-shadow: 10px 5px 5px black; align-items: center; margin-right: 20px; font-family: Roboto; font-size: 26px; border: #212121 1px solid; border-radius: 5px; background-color: aqua;'
+);
+itemStyle[2].setAttribute(
+  'style',
+  'width: 150px; display: flex; flex-direction: column; box-shadow: 10px 5px 5px black; align-items: center; margin-right: 20px; font-family: Roboto; font-size: 26px; border: #212121 1px solid; border-radius: 5px; background-color: aqua;'
+);
+itemStyle[3].setAttribute(
+  'style',
+  'width: 150px; display: flex; flex-direction: column; box-shadow: 10px 5px 5px black; align-items: center; margin-right: 20px; font-family: Roboto; font-size: 26px; border: #212121 1px solid; border-radius: 5px; background-color: aqua;'
+);
