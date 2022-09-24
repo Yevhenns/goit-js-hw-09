@@ -26,7 +26,7 @@ const options = {
 
       const timer = {
         start() {
-          setInterval(() => {
+          timerId = setInterval(() => {
             const dateNow = new Date();
             let msDelta = selectedTime - dateNow;
             const msResult = convertMs(msDelta);
@@ -35,12 +35,21 @@ const options = {
             hoursTimer.textContent = msResult.hours;
             minutesTimer.textContent = msResult.minutes;
             secondsTimer.textContent = msResult.seconds;
+            if (msDelta < 1000) {
+              this.stop();
+            }
           }, 1000);
         },
-      };
-      timer.start();
 
-      // startBtn.addEventListener('click', convertMs(msResult));
+        stop() {
+          clearInterval(timerId);
+        },
+      };
+
+      startBtn.addEventListener('click', () => {
+        timer.start();
+        startBtn.disabled = true;
+      });
     }
   },
 };
