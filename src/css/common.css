@@ -16,3 +16,23 @@ img {
   display: block;
   max-width: 100%;
 }
+
+.timer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.field {
+  font-family: Roboto;
+  font-size: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  border: #212121 1px solid;
+  border-radius: 5px;
+  background-color: aqua;
+  width: 150px;
+  box-shadow: 10px 5px 5px black;
+}
